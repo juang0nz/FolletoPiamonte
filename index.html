@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <!-- Hace que el layout se adapte al ancho del dispositivo (responsive) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Nombre del Emprendimiento</title>
+  <meta name="description" content="Conocé más de nuestro emprendimiento.">
+  <!-- Color del navegador en móviles (negro para acompañar el fondo) -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- Etiquetas para cuando compartas el link (WhatsApp/IG/FB) -->
+  <meta property="og:title" content="Nombre del Emprendimiento" />
+  <meta property="og:description" content="Seguinos en Instagram para ver más." />
+  <!-- Importante: apunta a la misma imagen de la landing -->
+  <meta property="og:image" content="assets/tu-imagen.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Pre-carga la imagen principal para que aparezca más rápido -->
+  <link rel="preload" as="image" href="assets/tu-imagen.jpg">
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Contenedor principal de la página -->
+  <main class="page">
+    <!-- Tarjeta que agrupa imagen + contenido -->
+    <section class="card">
+      <!-- Imagen protagonista: cambiá el src por tu archivo -->
+      <img
+        src="folleto.jpg"
+        alt="Menú" 
+        class="hero-img"
+        loading="eager"        
+        decoding="async"       
+      />
+
+      <!-- Bloque de contenido textual y botones -->
+      <div class="content">
+        <h1 class="brand">piamonte</h1>
+        <p class="tagline">Seguinos para ver promos, novedades y sorteos.</p>
+
+        <!-- Botón a Instagram: reemplazá la URL -->
+        <a
+          class="btn"
+          href="https://www.instagram.com/piamonte.parqueposadas?igsh=MW92ZWwyY3NyaGltaQ%3D%3D&utm_source=qr"
+          target="_blank"              
+          rel="noopener noreferrer"    
+          aria-label="Ir a nuestro Instagram"
+        >
+          Ver en Instagram
+        </a>
+      </div>
+    </section>
+
+    <!-- Pie de página con año dinámico -->
+    <footer class="footer">
+      <small>&copy; <span id="year"></span> Nombre del Emprendimiento. Todos los derechos reservados.</small>
+    </footer>
+  </main>
+
+  <script>
+    // Inserta el año actual automáticamente (evita tocar el HTML cada año)
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+/* ----------------------------
+   Reset mínimo + tipografías
+   ---------------------------- */
+* { box-sizing: border-box; }           /* Hace que width/height incluyan padding y borde */
+html, body { height: 100%; }            /* Garantiza alto completo para centrar verticalmente */
+body {
+  margin: 0;                            /* Elimina margen default del body */
+  background: #000;                     /* Fondo negro sólido */
+  color: #eee;                          /* Texto claro para buen contraste */
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+               "Apple Color Emoji", "Segoe UI Emoji"; /* Tipos del sistema: rápidos y legibles */
+  -webkit-font-smoothing: antialiased;  /* Suavizado de fuentes (WebKit) */
+  text-rendering: optimizeLegibility;   /* Mejora legibilidad en algunos navegadores */
+}
+
+/* Contenedor de la página: centra vertical/horizontal */
+.page {
+  min-height: 100dvh;                   /* Toma alto del viewport (dinámico en móviles) */
+  display: grid;                        /* Grid para centrar fácil */
+  place-items: center;                  /* Centrado vertical + horizontal */
+  padding: 24px;                        /* Respira en bordes en pantallas chicas */
+}
+
+/* Tarjeta que separa el contenido del fondo */
+.card {
+  width: 100%;
+  max-width: 720px;                     /* Ancho máximo legible en móviles/desktop */
+  background: #0b0b0b;                  /* Negro ligeramente más claro para “capa” */
+  border: 1px solid #1d1d1d;            /* Borde sutil para contraste */
+  border-radius: 20px;                  /* Esquinas redondeadas modernas */
+  overflow: hidden;                     /* Oculta desbordes (especialmente de la imagen) */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra suave para elevar la tarjeta */
+}
+
+.hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;   /* 👉 mantiene todo visible */
+  background: #111;      /* se verá como marco si sobra espacio */
+}
+
+
+/* Bloque de contenido: títulos, texto y botón */
+.content {
+  padding: 20px 20px 24px;              /* Espaciado interno consistente */
+  text-align: center;                   /* Centrado del contenido */
+}
+
+/* Marca/h1 escalable con clamp para responsividad tipográfica */
+.brand {
+  margin: 8px 0 6px;
+  font-size: clamp(20px, 3.8vw, 36px);  /* Min 20px, Máx 36px, escala con viewport */
+  letter-spacing: 0.3px;                /* Ajuste fino de tracking */
+}
+
+/* Subtítulo con color más suave */
+.tagline {
+  margin: 0 0 18px;
+  font-size: clamp(14px, 2.5vw, 18px);  /* Tamaño fluido */
+  color: #cfcfcf;
+}
+
+/* Botón principal: pill, contraste alto sobre fondo negro */
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 999px;                 /* Forma “pastilla” */
+  background: #ffffff;                  /* Blanco para máximo contraste */
+  color: #000000;                       /* Texto oscuro para legibilidad */
+  text-decoration: none;                /* Quita subrayado */
+  font-weight: 700;                     /* Más jerarquía visual */
+  line-height: 1;                       /* Altura de línea compacta */
+  transition: transform 0.15s ease, opacity 0.15s ease; /* Microinteracciones */
+  user-select: none;                    /* Evita seleccionar texto al tocar */
+  -webkit-tap-highlight-color: transparent; /* Mejora tap en iOS/Android */
+}
+
+/* Efectos al interactuar: sutil “lift” y cambios de opacidad */
+.btn:hover   { transform: translateY(-1px); opacity: 0.95; }
+.btn:active  { transform: translateY(0);    opacity: 0.9;  }
+
+/* Pie de página pequeño y discreto */
+.footer {
+  max-width: 720px;
+  width: 100%;
+  margin: 12px auto 0;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+}
+
+/* Ajustes específicos para pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .content { padding: 16px; }           /* Reduce padding para ganar espacio */
+  .btn { width: 100%; }                 /* Botón full-width mejora clicabilidad */
+}
