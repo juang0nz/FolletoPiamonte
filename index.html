@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="es">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,10 +7,21 @@
   <meta name="description" content="Menú Piamonte — Pizzería, calzones, Smash Burguer, chivitos y más." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+<script>
+  // Acordeón exclusivo: al abrir uno, se cierran los demás
+  document.querySelectorAll('details.sec').forEach(d => {
+    d.addEventListener('toggle', function () {
+      if (this.open) {
+        document.querySelectorAll('details.sec').forEach(o => {
+          if (o !== this) o.open = false;
+        });
+      }
+    });
+  });
+</script>
 
 <body>
   <!-- ======= Encabezado ======= -->
@@ -25,15 +35,8 @@
     </div>
 
     <div class="cta-row">
-      <!-- Link genérico a Maps; luego podemos reemplazar por ruta con origen (geolocalización) -->
-      <a class="btn btn-primary" href="https://maps.google.com/?q=Piamonte%20Parque%20Posadas" target="_blank"
-        rel="noopener">
-        📍 Cómo llegar
-      </a>
-      <!-- Botón para descargar la imagen del menú -->
-      <a class="btn btn-ghost" href="menu.jpg" download="Piamonte-Menu.jpg">
-        ⬇️ Descargar menú
-      </a>
+      <a class="btn btn-primary" href="https://maps.google.com/?q=Piamonte%20Parque%20Posadas" target="_blank" rel="noopener">📍 Cómo llegar</a>
+      <a class="btn btn-ghost" href="menu.jpg" download="Piamonte-Menu.jpg">⬇️ Descargar menú</a>
     </div>
   </header>
 
@@ -43,7 +46,7 @@
     <a class="chip" href="#calzone">Calzone</a>
     <a class="chip" href="#pizzetas">Pizzetas</a>
     <a class="chip" href="#especiales">Especiales</a>
-    <a class="chip" href="#Smash Burguer">Smash Burguer</a>
+    <a class="chip" href="#smash-burguer">Smash Burguer</a>
     <a class="chip" href="#chivitos">Chivitos</a>
     <a class="chip" href="#porciones">Porciones</a>
     <a class="chip" href="#fritas">Fritas salseadas</a>
@@ -53,881 +56,172 @@
 
   <!-- ======= Contenido ======= -->
   <main id="menu" class="wrap menu-grid">
-    <!-- PATRÓN para ítems (copiar/pegar):
-      <li class="item">
-        <div class="item-line">
-          <span class="item-name">Nombre del producto</span>
-          <span class="item-price">$000</span>
-        </div>
-        <p class="item-desc">Descripción opcional…</p>
-      </li>
-    -->
 
-    <section id="pizzeria" class="sec">
-      <h2>Pizzería</h2>
+    <details id="pizzeria" class="sec" open>
+      <summary><h2>Pizzería</h2></summary>
       <ul class="list">
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Muzzarella</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$240</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Muzza con un gusto</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$280</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Muzza con dos gustos</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$310</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Pizza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$160</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Pizza con un gusto</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$190</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Pizza con dos gustos</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$220</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Figazza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$220</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Figazza con muzza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$260</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Fainá</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$140</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Fainá encebollado</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$160</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Fainá con muzza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$180</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Encebollado con muzza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$210</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">½ metro de muzza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$460</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">½ metro de pizza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$300</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Metro de muzza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$790</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Metro de pizza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$550</span>
-          </div>
-        </li>
+        <li class="item"><div class="item-line"><span class="item-name">Muzzarella</span><span class="dots" aria-hidden="true"></span><span class="item-price">$240</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Muzza con un gusto</span><span class="dots" aria-hidden="true"></span><span class="item-price">$280</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Muzza con dos gustos</span><span class="dots" aria-hidden="true"></span><span class="item-price">$310</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Pizza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$160</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Pizza con un gusto</span><span class="dots" aria-hidden="true"></span><span class="item-price">$190</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Pizza con dos gustos</span><span class="dots" aria-hidden="true"></span><span class="item-price">$220</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Figazza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$220</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Figazza con muzza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$260</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Fainá</span><span class="dots" aria-hidden="true"></span><span class="item-price">$140</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Fainá encebollado</span><span class="dots" aria-hidden="true"></span><span class="item-price">$160</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Fainá con muzza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$180</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Encebollado con muzza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$210</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">½ metro de muzza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$460</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">½ metro de pizza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$300</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Metro de muzza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$790</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Metro de pizza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$550</span></div></li>
       </ul>
-    </section>
+    </details>
 
-
-    </section>
-
-    <section id="calzone" class="sec">
-      <h2>Calzone</h2>
+    <details id="calzone" class="sec" open>
+      <summary><h2>Calzone</h2></summary>
       <ul class="list">
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">CALZONE</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$730</span>
-          </div>
-          <p class="item-desc">muzza, pollo, cheddar, papas fritas y huevo</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">NAPOLITANO</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$730</span>
-          </div>
-          <p class="item-desc">muzza, tomate, jamón y huevo</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">CAPRESSE</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$730</span>
-          </div>
-          <p class="item-desc">tomate, albahaca, muzza y parmesano</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">GRINGO</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$730</span>
-          </div>
-          <p class="item-desc">muzza, panceta, cheddar y huevo duro</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">ESPECIAL</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$730</span>
-          </div>
-          <p class="item-desc">muzza, pollo a la mostaza y cebolla</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">BARBACOA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$730</span>
-          </div>
-          <p class="item-desc">muzza, carne picada, barbacoa y cebolla</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">VEGETARIANO</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$730</span>
-          </div>
-          <p class="item-desc">muzza y mix de verduras salteadas</p>
-        </li>
-
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">JAMÓN Y QUESO</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$660</span>
-          </div>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">PIAMONTE</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$790</span>
-          </div>
-          <p class="item-desc">muzza, pollo, cheddar, papas fritas y huevo</p>
-        </li>
-
+        <li class="item"><div class="item-line"><span class="item-name">CALZONE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">muzza, pollo, cheddar, papas fritas y huevo</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">NAPOLITANO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">muzza, tomate, jamón y huevo</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">CAPRESSE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">tomate, albahaca, muzza y parmesano</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">GRINGO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">muzza, panceta, cheddar y huevo duro</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">ESPECIAL</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">muzza, pollo a la mostaza y cebolla</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">BARBACOA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">muzza, carne picada, barbacoa y cebolla</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">VEGETARIANO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">muzza y mix de verduras salteadas</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">JAMÓN Y QUESO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$660</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">PIAMONTE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$790</span></div><p class="item-desc">muzza, pollo, cheddar, papas fritas y huevo</p></li>
       </ul>
+    </details>
 
-    </section>
-
-    <section id="pizzetas" class="sec">
-      <h2>Pizzetas</h2>
+    <details id="pizzetas" class="sec" open>
+      <summary><h2>Pizzetas</h2></summary>
       <ul class="list">
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Solo muzza</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$470</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">Solo salsa</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$350</span>
-          </div>
-        </li>
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">MARCELLA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">jamón y champiñones</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">AMERICANA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">panceta y cheddar</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">NÓRDICA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">jamón y aceitunas</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">HAWAIANA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">jamón y ananá</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">PARISINA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">jamón y roquefort</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">VESUBIO</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">longaniza y cebolla</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">SALERNITANA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">longaniza y morrón</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">FUGAZZETA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">cebolla, morrón y parmesano</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">SICILIANA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">panceta y champiñón</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">PALMA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">palmitos y jamón</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">DIAVOLA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">pepperoni</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">CAPRESSE</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">tomate y albahaca</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">FUNGHI</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">tomate, champiñón y ajo</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">CARBONARA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">panceta, huevo, aceite de oliva y pimienta negra</p>
-        </li>
-
-        <li class="item">
-          <div class="item-line">
-            <span class="item-name">NAPOLITANA</span>
-            <span class="dots" aria-hidden="true"></span>
-            <span class="item-price">$590</span>
-          </div>
-          <p class="item-desc">jamón, tomate, panceta y orégano</p>
-        </li>
-
+        <li class="item"><div class="item-line"><span class="item-name">Solo muzza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$470</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Solo salsa</span><span class="dots" aria-hidden="true"></span><span class="item-price">$350</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">MARCELLA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">jamón y champiñones</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">AMERICANA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">panceta y cheddar</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">NÓRDICA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">jamón y aceitunas</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAWAIANA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">jamón y ananá</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">PARISINA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">jamón y roquefort</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">VESUBIO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">longaniza y cebolla</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">SALERNITANA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">longaniza y morrón</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">FUGAZZETA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">cebolla, morrón y parmesano</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">SICILIANA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">panceta y champiñón</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">PALMA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">palmitos y jamón</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">DIAVOLA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">pepperoni</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">CAPRESSE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">tomate y albahaca</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">FUNGHI</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">tomate, champiñón y ajo</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">CARBONARA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">panceta, huevo, aceite de oliva y pimienta negra</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">NAPOLITANA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">jamón, tomate, panceta y orégano</p></li>
       </ul>
-    </section>
+    </details>
 
-    <section id="especiales" class="sec">
-      <h2>Especiales</h2>
+    <details id="especiales" class="sec" open>
+      <summary><h2>Especiales</h2></summary>
       <ul class="list">
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">PROSCIUTTO</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$620</span>
-    </div>
-    <p class="item-desc">jamón crudo, rúcula y parmesano</p>
-  </li>
+        <li class="item"><div class="item-line"><span class="item-name">PROSCIUTTO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$620</span></div><p class="item-desc">jamón crudo, rúcula y parmesano</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">CAPRICCIOSA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$620</span></div><p class="item-desc">panceta, roquefort, aceitunas y champi</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">A LA CARUSSO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$690</span></div><p class="item-desc">muzzarella y salsa carusso</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">AL PESTO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$690</span></div><p class="item-desc">muzza, pesto, parmesano y nueces</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">BARBACOA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$650</span></div><p class="item-desc">carne picada, cebolla y salsa barbacoa</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">PAULINA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$620</span></div><p class="item-desc">pollo y cebolla</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">4 QUESOS</span><span class="dots" aria-hidden="true"></span><span class="item-price">$620</span></div><p class="item-desc">parmesano, cheddar, roquefort y muzzarella</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">VEGETARIANA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">mix de verduras salteadas</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">PIAMONTE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$780</span></div><p class="item-desc">panceta, cheddar, fritas y 4 huevos fritos</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">Pizzetas Mitad y Mitad</span><span class="dots" aria-hidden="true"></span><span class="item-price">$620</span></div><p class="item-desc">no incluye Piamonte</p></li>
+      </ul>
+    </details>
 
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">CAPRICCIOSA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$620</span>
-    </div>
-    <p class="item-desc">panceta, roquefort, aceitunas y champi</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">A LA CARUSSO</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$690</span>
-    </div>
-    <p class="item-desc">muzzarella y salsa carusso</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">AL PESTO</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$690</span>
-    </div>
-    <p class="item-desc">muzza, pesto, parmesano y nueces</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">BARBACOA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$650</span>
-    </div>
-    <p class="item-desc">carne picada, cebolla y salsa barbacoa</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">PAULINA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$620</span>
-    </div>
-    <p class="item-desc">pollo y cebolla</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">4 QUESOS</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$620</span>
-    </div>
-    <p class="item-desc">parmesano, cheddar, roquefort y muzzarella</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">VEGETARIANA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$590</span>
-    </div>
-    <p class="item-desc">mix de verduras salteadas</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">PIAMONTE</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$780</span>
-    </div>
-    <p class="item-desc">panceta, cheddar, fritas y 4 huevos fritos</p>
-  </li>
-
-  <!-- Nota / item especial -->
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Pizzetas Mitad y Mitad</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$620</span>
-    </div>
-    <p class="item-desc">no incluye Piamonte</p>
-  </li>
-</ul>
-
-    </section>
-
-    <section id="Smash Burguer" class="sec">
-      <h2>Smash Burger </h2>
-<p class="item-desc">(todas doble carne · acompañadas de fritas)</p>
-<ul class="list">
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA CRIOLLA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">muzzarella, panceta, mostaza, huevo frito</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA BARBACUE</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">cebolla caramelizada, huevo frito, cheddar, barbacoa, panceta</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA CAPRESSE</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">muzzarella, tomate, albahaca</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA FRENCH</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">muzzarella, panceta, champiñón, roquefort, parmesano</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA DE QUESOS</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">muzzarella, cheddar, queso sándwich, roquefort, parmesano</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA VEGETARIANA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">hamburguesa de lentejas, lechuga, tomate, cebolla caramelizada, champiñón, salsa de soja</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA COMPLETA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">lechuga, tomate, huevo frito, jamón, muzzarella, panceta</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA BIG</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$510</span>
-    </div>
-    <p class="item-desc">lechuga, salsa BIG casera, cheddar, cebolla, pepinillos</p>
-  </li>
-
-  <!-- Ítems con precio propio -->
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">HAMBURGUESA COMÚN</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$390</span>
-    </div>
-    <p class="item-desc">lechuga, tomate, huevo duro</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">PIAMONTE BURGER</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$580</span>
-    </div>
-    <p class="item-desc">triple carne, jamón, muzzarella, cebolla, panceta, cheddar, huevo, tomate, lechuga y papas rústicas</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">SUPER BAURÚ</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$860</span>
-    </div>
-    <p class="item-desc">350g carne, arvejas, choclo, omelette, cebolla, panceta, morrón, aceitunas, jamón, muzza, mayonesa, ketchup y mostaza. Acompañado en colchón de fritas</p>
-  </li>
-</ul>
-
-    </section>
-
-    <section id="chivitos" class="sec">
-      <h2>Chivitos</h2>
+    <details id="smash-burguer" class="sec" open>
+      <summary><h2>Smash Burger</h2></summary>
+      <p class="item-desc">(todas doble carne · acompañadas de fritas)</p>
       <ul class="list">
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">COMÚN al pan con fritas</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$470</span>
-    </div>
-    <p class="item-desc">lechuga, tomate, huevo duro, jamón y muzzarella</p>
-  </li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA CRIOLLA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">muzzarella, panceta, mostaza, huevo frito</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA BARBACUE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">cebolla caramelizada, huevo frito, cheddar, barbacoa, panceta</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA CAPRESSE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">muzzarella, tomate, albahaca</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA FRENCH</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">muzzarella, panceta, champiñón, roquefort, parmesano</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA DE QUESOS</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">muzzarella, cheddar, queso sándwich, roquefort, parmesano</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA VEGETARIANA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">hamburguesa de lentejas, lechuga, tomate, cebolla caramelizada, champiñón, salsa de soja</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA COMPLETA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">lechuga, tomate, huevo frito, jamón, muzzarella, panceta</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA BIG</span><span class="dots" aria-hidden="true"></span><span class="item-price">$510</span></div><p class="item-desc">lechuga, salsa BIG casera, cheddar, cebolla, pepinillos</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">HAMBURGUESA COMÚN</span><span class="dots" aria-hidden="true"></span><span class="item-price">$390</span></div><p class="item-desc">lechuga, tomate, huevo duro</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">PIAMONTE BURGER</span><span class="dots" aria-hidden="true"></span><span class="item-price">$580</span></div><p class="item-desc">triple carne, jamón, muzzarella, cebolla, panceta, cheddar, huevo, tomate, lechuga y papas rústicas</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">SUPER BAURÚ</span><span class="dots" aria-hidden="true"></span><span class="item-price">$860</span></div><p class="item-desc">350g carne, arvejas, choclo, omelette, cebolla, panceta, morrón, aceitunas, jamón, muzza, mayonesa, ketchup y mostaza. Acompañado en colchón de fritas</p></li>
+      </ul>
+    </details>
 
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">CANADIENSE al pan con fritas</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$590</span>
-    </div>
-    <p class="item-desc">jamón, muzzarella, panceta, tomate, huevo frito, lechuga, cebolla, morrón, champiñones y aceitunas</p>
-  </li>
-
-  <!-- Al plato (dos variantes) -->
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">CANADIENSE al plato (para uno, 3 guarniciones)</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$520</span>
-    </div>
-    
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">CANADIENSE al plato (para dos, 3 guarniciones)</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$920</span>
-    </div>
-  </li>
-</ul>
-
-    </section>
-
-    <section id="porciones" class="sec">
-      <h2>Porciones</h2>
+    <details id="chivitos" class="sec" open>
+      <summary><h2>Chivitos</h2></summary>
       <ul class="list">
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Fritas</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$250</span>
-    </div>
-  </li>
+        <li class="item"><div class="item-line"><span class="item-name">COMÚN al pan con fritas</span><span class="dots" aria-hidden="true"></span><span class="item-price">$470</span></div><p class="item-desc">lechuga, tomate, huevo duro, jamón y muzzarella</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">CANADIENSE al pan con fritas</span><span class="dots" aria-hidden="true"></span><span class="item-price">$590</span></div><p class="item-desc">jamón, muzzarella, panceta, tomate, huevo frito, lechuga, cebolla, morrón, champiñones y aceitunas</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">CANADIENSE al plato (para uno, 3 guarniciones)</span><span class="dots" aria-hidden="true"></span><span class="item-price">$520</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">CANADIENSE al plato (para dos, 3 guarniciones)</span><span class="dots" aria-hidden="true"></span><span class="item-price">$920</span></div></li>
+      </ul>
+    </details>
 
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Noissettes</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$290</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Rústicas</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$290</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Nuggets (14 u.)</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$410</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Arrolladitos primavera (12 u.)</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$380</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Bastones de muzzarella (8 u.)</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$450</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Aros de cebolla (12 u.)</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$380</span>
-    </div>
-  </li>
-</ul>
-
-    </section>
-
-    <section id="fritas" class="sec">
-      <h2>Fritas salseadas</h2>
+    <details id="porciones" class="sec" open>
+      <summary><h2>Porciones</h2></summary>
       <ul class="list">
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">GRAMAJO</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$630 (para uno $390)</span>
-    </div>
-  </li>
+        <li class="item"><div class="item-line"><span class="item-name">Fritas</span><span class="dots" aria-hidden="true"></span><span class="item-price">$250</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Noissettes</span><span class="dots" aria-hidden="true"></span><span class="item-price">$290</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Rústicas</span><span class="dots" aria-hidden="true"></span><span class="item-price">$290</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Nuggets (14 u.)</span><span class="dots" aria-hidden="true"></span><span class="item-price">$410</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Arrolladitos primavera (12 u.)</span><span class="dots" aria-hidden="true"></span><span class="item-price">$380</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Bastones de muzzarella (8 u.)</span><span class="dots" aria-hidden="true"></span><span class="item-price">$450</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Aros de cebolla (12 u.)</span><span class="dots" aria-hidden="true"></span><span class="item-price">$380</span></div></li>
+      </ul>
+    </details>
 
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">FRITAS CHEDDAR Y PANCETA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$630 (para uno $390)</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">FRITAS CAPRESSE</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$630 (para uno $390)</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">FRITAS 4 QUESOS</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$630 (para uno $390)</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">FRITAS CHAMPI</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$630 (para uno $390)</span>
-    </div>
-  </li>
-</ul>
-
-    </section>
-
-    <section id="tostados" class="sec">
-      <h2>Tostados</h2>
+    <details id="fritas" class="sec" open>
+      <summary><h2>Fritas salseadas</h2></summary>
       <ul class="list">
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">JAMÓN Y QUESO</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$290</span>
-    </div>
-  </li>
+        <li class="item"><div class="item-line"><span class="item-name">GRAMAJO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$630 (para uno $390)</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">FRITAS CHEDDAR Y PANCETA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$630 (para uno $390)</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">FRITAS CAPRESSE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$630 (para uno $390)</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">FRITAS 4 QUESOS</span><span class="dots" aria-hidden="true"></span><span class="item-price">$630 (para uno $390)</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">FRITAS CHAMPI</span><span class="dots" aria-hidden="true"></span><span class="item-price">$630 (para uno $390)</span></div></li>
+      </ul>
+    </details>
 
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">CALIENTE CON MUZZA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$330</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">NAPOLITANO</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$380</span>
-    </div>
-    <p class="item-desc">jamón, queso, muzzarella, tomate y orégano</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">ESPECIAL</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$380</span>
-    </div>
-    <p class="item-desc">panceta, queso, muzzarella, cheddar y jamón</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">CARIBEAN</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$380</span>
-    </div>
-    <p class="item-desc">ananá, jamón, muzzarella, queso y choclo</p>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">VEGETARIANO</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$380</span>
-    </div>
-    <p class="item-desc">tomate, huevo, muzzarella, queso y choclo</p>
-  </li>
-</ul>
-
-    </section>
-
-    <section id="bebidas" class="sec">
-      <h2>Bebidas</h2>
+    <details id="tostados" class="sec" open>
+      <summary><h2>Tostados</h2></summary>
       <ul class="list">
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Refresco línea Pepsi 1.5 L</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$220</span>
-    </div>
-  </li>
+        <li class="item"><div class="item-line"><span class="item-name">JAMÓN Y QUESO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$290</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">CALIENTE CON MUZZA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$330</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">NAPOLITANO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$380</span></div><p class="item-desc">jamón, queso, muzzarella, tomate y orégano</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">ESPECIAL</span><span class="dots" aria-hidden="true"></span><span class="item-price">$380</span></div><p class="item-desc">panceta, queso, muzzarella, cheddar y jamón</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">CARIBEAN</span><span class="dots" aria-hidden="true"></span><span class="item-price">$380</span></div><p class="item-desc">ananá, jamón, muzzarella, queso y choclo</p></li>
+        <li class="item"><div class="item-line"><span class="item-name">VEGETARIANO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$380</span></div><p class="item-desc">tomate, huevo, muzzarella, queso y choclo</p></li>
+      </ul>
+    </details>
 
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Refresco 500 ml</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$120</span>
-    </div>
-  </li>
+    <details id="bebidas" class="sec" open>
+      <summary><h2>Bebidas</h2></summary>
+      <ul class="list">
+        <li class="item"><div class="item-line"><span class="item-name">Refresco línea Pepsi 1.5 L</span><span class="dots" aria-hidden="true"></span><span class="item-price">$220</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Refresco 500 ml</span><span class="dots" aria-hidden="true"></span><span class="item-price">$120</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Pilsen</span><span class="dots" aria-hidden="true"></span><span class="item-price">$240</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Patricia</span><span class="dots" aria-hidden="true"></span><span class="item-price">$270</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Zillertal</span><span class="dots" aria-hidden="true"></span><span class="item-price">$280</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Zillertal IPA</span><span class="dots" aria-hidden="true"></span><span class="item-price">$290</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Stella Artois</span><span class="dots" aria-hidden="true"></span><span class="item-price">$310</span></div></li>
+        <li class="item"><div class="item-line"><span class="item-name">Lata cerveza 473 ml</span><span class="dots" aria-hidden="true"></span><span class="item-price">$150</span></div></li>
+      </ul>
+    </details>
 
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Pilsen</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$240</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Patricia</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$270</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Zillertal</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$280</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Zillertal IPA</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$290</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Stella Artois</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$310</span>
-    </div>
-  </li>
-
-  <li class="item">
-    <div class="item-line">
-      <span class="item-name">Lata cerveza 473 ml</span>
-      <span class="dots" aria-hidden="true"></span>
-      <span class="item-price">$150</span>
-    </div>
-  </li>
-</ul>
-
-    </section>
   </main>
 
   <!-- ======= Botonera fija ======= -->
   <div class="dock" role="navigation" aria-label="Acciones rápidas">
-    <a class="dock-btn" id="wa" target="_blank" rel="noopener" href="https://bit.ly/WhatsAppPiamonteParquePosadas">
-      WhatsApp
-    </a>
-    <a class="dock-btn" id="ig" target="_blank" rel="noopener"
-      href="https://www.instagram.com/piamonte.parqueposadas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
-      Instagram
-    </a>
+    <a class="dock-btn" id="wa" target="_blank" rel="noopener" href="https://bit.ly/WhatsAppPiamonteParquePosadas">WhatsApp</a>
+    <a class="dock-btn" id="ig" target="_blank" rel="noopener" href="https://www.instagram.com/piamonte.parqueposadas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">Instagram</a>
   </div>
 
   <footer class="wrap footer">
-    <p>© Piamonte — Parque Posadas</p>
+    <p>📞 2337 0312 Piamonte — Parque Posadas</p>
     <a class="top" href="#top">↑ Subir</a>
   </footer>
-
-  <!-- FUTURO: aquí irá el script de geolocalización para “Cómo llegar”.
-       Por ahora, mantenemos el HTML sin JavaScript como pediste. -->
 </body>
-
 </html>

@@ -334,3 +334,53 @@ body::before{
 @media (max-width: 899px){
   body::before{ position: absolute; }
 }
+
+/* Tocar tamaños/espaciados en móvil */
+@media (max-width: 480px){
+  .wrap { padding: 14px; }
+  .sec { padding: 12px; }
+  .sec h2 { font-size: 24px; }
+  .list { gap: 8px; }
+  .item-line { column-gap: 6px; }
+}
+
+/* Mejor scroll de chips en móvil */
+.nav-chips a { display: inline-block; }
+
+/* Evitar jank por 'background-attachment: fixed' en iOS */
+@media (max-width: 899px){
+  body{ background-attachment: scroll !important; }
+}
+/* Acordeón sin JS con <details>/<summary> */
+.sec summary{
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sec summary::-webkit-details-marker{ display:none; }
+.sec summary h2{ margin:0; }
+.sec summary::after{
+  content:"▾";
+  transition: transform .2s ease;
+  opacity:.85;
+}
+.sec[open] summary::after{ transform: rotate(180deg); }
+
+/* En móvil, si preferís ver menos, podés cerrar manualmente tocando el título */
+@media (max-width: 480px){
+  .sec { padding: 12px; }
+  .sec h2 { font-size: 24px; }
+  .list { gap: 8px; }
+  .item-line { column-gap: 6px; }
+}
+
+/* Ocultar chips sin dejar espacio
+.nav-chips{
+  display: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+} */
