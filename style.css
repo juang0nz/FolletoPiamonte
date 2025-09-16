@@ -1,97 +1,336 @@
-/* ----------------------------
-   Reset mínimo + tipografías
-   ---------------------------- */
-* { box-sizing: border-box; }           /* Hace que width/height incluyan padding y borde */
-html, body { height: 100%; }            /* Garantiza alto completo para centrar verticalmente */
+/* ===== Base ===== */
+:root {
+  --bg: #0b0b0c;
+  /* fondo principal */
+  --card: #121214;
+  /* bloques */
+  --ink: #ffffff;
+  /* texto principal */
+  --muted: #b9bcc6;
+  /* texto secundario */
+  --accent: #ff3d3d;
+  /* rojo pizza */
+  --accent-2: #ffb703;
+  /* queso */
+  --wrap: 1120px;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
 body {
-  margin: 0;                            /* Elimina margen default del body */
-  background: #000;                     /* Fondo negro sólido */
-  color: #eee;                          /* Texto claro para buen contraste */
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-               "Apple Color Emoji", "Segoe UI Emoji"; /* Tipos del sistema: rápidos y legibles */
-  -webkit-font-smoothing: antialiased;  /* Suavizado de fuentes (WebKit) */
-  text-rendering: optimizeLegibility;   /* Mejora legibilidad en algunos navegadores */
+  margin: 0;
+  padding: 0
 }
 
-/* Contenedor de la página: centra vertical/horizontal */
-.page {
-  min-height: 100dvh;                   /* Toma alto del viewport (dinámico en móviles) */
-  display: grid;                        /* Grid para centrar fácil */
-  place-items: center;                  /* Centrado vertical + horizontal */
-  padding: 24px;                        /* Respira en bordes en pantallas chicas */
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1000px 500px at 120% -10%, rgba(255, 61, 61, .08), transparent 60%),
+    radial-gradient(900px 500px at -10% 120%, rgba(255, 183, 3, .07), transparent 60%),
+    url('assets/pizza-texture.jpg') center/1200px repeat fixed,
+    var(--bg);
+  background-blend-mode: screen, screen, multiply, normal;
+  line-height: 1.5;
 }
 
-/* Tarjeta que separa el contenido del fondo */
-.card {
-  width: 100%;
-  max-width: 720px;                     /* Ancho máximo legible en móviles/desktop */
-  background: #0b0b0b;                  /* Negro ligeramente más claro para “capa” */
-  border: 1px solid #1d1d1d;            /* Borde sutil para contraste */
-  border-radius: 20px;                  /* Esquinas redondeadas modernas */
-  overflow: hidden;                     /* Oculta desbordes (especialmente de la imagen) */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Sombra suave para elevar la tarjeta */
+.wrap {
+  max-width: var(--wrap);
+  margin: 0 auto;
+  padding: 18px
 }
 
-.hero-img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;   /* 👉 mantiene todo visible */
-  background: #111;      /* se verá como marco si sobra espacio */
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 28px;
+  padding-bottom: 10px
 }
 
-
-/* Bloque de contenido: títulos, texto y botón */
-.content {
-  padding: 20px 20px 24px;              /* Espaciado interno consistente */
-  text-align: center;                   /* Centrado del contenido */
-}
-
-/* Marca/h1 escalable con clamp para responsividad tipográfica */
 .brand {
-  margin: 8px 0 6px;
-  font-size: clamp(20px, 3.8vw, 36px);  /* Min 20px, Máx 36px, escala con viewport */
-  letter-spacing: 0.3px;                /* Ajuste fino de tracking */
+  display: flex;
+  align-items: center;
+  gap: 14px
 }
 
-/* Subtítulo con color más suave */
-.tagline {
-  margin: 0 0 18px;
-  font-size: clamp(14px, 2.5vw, 18px);  /* Tamaño fluido */
-  color: #cfcfcf;
+.logo {
+  width: 100px;
+  height: 72px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .4))
 }
 
-/* Botón principal: pill, contraste alto sobre fondo negro */
+.brand h1 {
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: .5px;
+  font-size: clamp(36px, 6vw, 68px);
+  margin: 0;
+  line-height: 1;
+}
+
+.tag {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: .4px
+}
+
+.cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap
+}
+
 .btn {
-  display: inline-block;
-  padding: 12px 18px;
-  border-radius: 999px;                 /* Forma “pastilla” */
-  background: #ffffff;                  /* Blanco para máximo contraste */
-  color: #000000;                       /* Texto oscuro para legibilidad */
-  text-decoration: none;                /* Quita subrayado */
-  font-weight: 700;                     /* Más jerarquía visual */
-  line-height: 1;                       /* Altura de línea compacta */
-  transition: transform 0.15s ease, opacity 0.15s ease; /* Microinteracciones */
-  user-select: none;                    /* Evita seleccionar texto al tocar */
-  -webkit-tap-highlight-color: transparent; /* Mejora tap en iOS/Android */
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: .2s ease;
+  border: 1px solid transparent;
 }
 
-/* Efectos al interactuar: sutil “lift” y cambios de opacidad */
-.btn:hover   { transform: translateY(-1px); opacity: 0.95; }
-.btn:active  { transform: translateY(0);    opacity: 0.9;  }
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #8f1d1d);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(255, 61, 61, .25);
+}
 
-/* Pie de página pequeño y discreto */
-.footer {
-  max-width: 720px;
-  width: 100%;
-  margin: 12px auto 0;
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(255, 61, 61, .32)
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+  border-color: rgba(255, 255, 255, .12);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, .12)
+}
+
+/* ===== Chips nav ===== */
+.nav-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 6px;
+  padding-bottom: 10px
+}
+
+.chip {
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .06));
+  border: 1px solid rgba(255, 255, 255, .16);
+  backdrop-filter: blur(6px);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.chip:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .08));
+  transform: translateY(-1px)
+}
+
+/* ===== Grid de secciones ===== */
+.menu-grid {
+  display: grid;
+  gap: 18px;
+  scroll-margin-top: 90px
+}
+
+@media (min-width:900px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width:1200px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.sec {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: var(--radius);
+  padding: 16px 16px 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .25);
+}
+
+.sec h2 {
+  margin: 2px 0 10px;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: .4px;
+  font-size: 28px;
+}
+
+/* ===== Lista de ítems (vacía aún) ===== */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.item-line {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: baseline
+}
+
+.item-name {
+  font-weight: 700
+}
+
+.item-price {
+  white-space: nowrap
+}
+
+.item-desc {
+  margin: -2px 0 0;
+  color: var(--muted);
+  font-size: 14px
+}
+
+/* ===== Dock fijo (WA / IG) ===== */
+.dock {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 50;
+  padding-inline: 12px;
+}
+
+.dock-btn {
+  flex: 0 1 220px;
   text-align: center;
-  color: #999;
-  font-size: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  color: #111;
+  background: #fff;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, .28);
 }
 
-/* Ajustes específicos para pantallas muy pequeñas */
-@media (max-width: 360px) {
-  .content { padding: 16px; }           /* Reduce padding para ganar espacio */
-  .btn { width: 100%; }                 /* Botón full-width mejora clicabilidad */
+#wa {
+  background: linear-gradient(135deg, #25D366, #49e084);
+  color: #081
+}
+
+#ig {
+  background: linear-gradient(135deg, #f58529, #dd2a7b 60%, #8134af);
+  color: #fff
+}
+
+.dock-btn:hover {
+  transform: translateY(-1px)
+}
+
+/* ===== Footer ===== */
+.footer {
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 80px;
+}
+
+.footer .top {
+  color: #fff;
+  text-decoration: none;
+  opacity: .9
+}
+
+.footer .top:hover {
+  opacity: 1
+}
+/* Centrar el encabezado y el bloque de marca */
+.hero{
+  align-items: center;   /* centra el contenido del header */
+  text-align: center;    /* centra los textos dentro */
+}
+
+.brand{
+  justify-content: center;  /* centra el grupo logo+texto horizontalmente */
+  gap: 14px;
+}
+
+.brand-txt{
+  text-align: center;    /* asegura que h1 y la bajada queden centrados */
+}
+
+/* Que los CTAs también queden centrados */
+.cta-row{
+  justify-content: center;
+}
+
+/* En móviles, apilá logo y textos para un centro perfecto */
+@media (max-width: 560px){
+  .brand{ flex-direction: column; }
+  .logo{ margin-bottom: 4px; }
+}
+
+/* === Parche para menú con puntos (líderes) === */
+.item-line{
+  display: grid !important;              /* fuerza grid por si quedó un flex viejo */
+  grid-template-columns: auto 1fr auto;  /* nombre | puntos elásticos | precio */
+  align-items: baseline;
+  column-gap: 8px;
+}
+
+.item-name{ font-weight: 700; }
+.item-price{
+  white-space: nowrap;
+  justify-self: end;                     /* alinea el precio a la derecha */
+  text-align: right;
+}
+
+/* tramo de puntos que se estira */
+.dots{
+  margin: 0 8px;
+  align-self: center;
+  height: 0;                               /* no ocupa alto */
+  border-bottom: 2px dotted rgba(255,255,255,.45); /* LA LÍNEA PUNTEADA */
+}
+
+
+
+/* Colocá esto al final del CSS */
+body::before{
+  content:"";
+  position: fixed; inset: 0;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),           /* oscurece para que el texto se lea */
+    url('fondo.png') center/cover no-repeat;       /* tu foto */
+  opacity: .22;                       /* TRANSPARENCIA GLOBAL de la foto */
+  pointer-events: none; z-index: -1;  /* no bloquea clics y queda detrás */
+}
+
+/* En móviles, evitá 'fixed' si notás tirones de scroll */
+@media (max-width: 899px){
+  body::before{ position: absolute; }
 }
