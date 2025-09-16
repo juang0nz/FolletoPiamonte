@@ -10,18 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
-<script>
-  // Acordeón exclusivo: al abrir uno, se cierran los demás
-  document.querySelectorAll('details.sec').forEach(d => {
-    d.addEventListener('toggle', function () {
-      if (this.open) {
-        document.querySelectorAll('details.sec').forEach(o => {
-          if (o !== this) o.open = false;
-        });
-      }
-    });
-  });
-</script>
 
 <body>
   <!-- ======= Encabezado ======= -->
@@ -40,7 +28,7 @@
     </div>
   </header>
 
-  <!-- ======= Navegación de secciones ======= -->
+  <!-- ======= Navegación de secciones =======
   <nav class="wrap nav-chips" aria-label="Secciones del menú">
     <a class="chip" href="#pizzeria">Pizzería</a>
     <a class="chip" href="#calzone">Calzone</a>
@@ -52,12 +40,12 @@
     <a class="chip" href="#fritas">Fritas salseadas</a>
     <a class="chip" href="#tostados">Tostados</a>
     <a class="chip" href="#bebidas">Bebidas</a>
-  </nav>
+  </nav> -->
 
   <!-- ======= Contenido ======= -->
   <main id="menu" class="wrap menu-grid">
 
-    <details id="pizzeria" class="sec" open>
+    <details id="pizzeria" class="sec" >
       <summary><h2>Pizzería</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">Muzzarella</span><span class="dots" aria-hidden="true"></span><span class="item-price">$240</span></div></li>
@@ -79,7 +67,7 @@
       </ul>
     </details>
 
-    <details id="calzone" class="sec" open>
+    <details id="calzone" class="sec" >
       <summary><h2>Calzone</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">CALZONE</span><span class="dots" aria-hidden="true"></span><span class="item-price">$730</span></div><p class="item-desc">muzza, pollo, cheddar, papas fritas y huevo</p></li>
@@ -94,7 +82,7 @@
       </ul>
     </details>
 
-    <details id="pizzetas" class="sec" open>
+    <details id="pizzetas" class="sec" >
       <summary><h2>Pizzetas</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">Solo muzza</span><span class="dots" aria-hidden="true"></span><span class="item-price">$470</span></div></li>
@@ -117,7 +105,7 @@
       </ul>
     </details>
 
-    <details id="especiales" class="sec" open>
+    <details id="especiales" class="sec" >
       <summary><h2>Especiales</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">PROSCIUTTO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$620</span></div><p class="item-desc">jamón crudo, rúcula y parmesano</p></li>
@@ -133,7 +121,7 @@
       </ul>
     </details>
 
-    <details id="smash-burguer" class="sec" open>
+    <details id="smash-burguer" class="sec" >
       <summary><h2>Smash Burger</h2></summary>
       <p class="item-desc">(todas doble carne · acompañadas de fritas)</p>
       <ul class="list">
@@ -151,7 +139,7 @@
       </ul>
     </details>
 
-    <details id="chivitos" class="sec" open>
+    <details id="chivitos" class="sec" >
       <summary><h2>Chivitos</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">COMÚN al pan con fritas</span><span class="dots" aria-hidden="true"></span><span class="item-price">$470</span></div><p class="item-desc">lechuga, tomate, huevo duro, jamón y muzzarella</p></li>
@@ -161,7 +149,7 @@
       </ul>
     </details>
 
-    <details id="porciones" class="sec" open>
+    <details id="porciones" class="sec" >
       <summary><h2>Porciones</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">Fritas</span><span class="dots" aria-hidden="true"></span><span class="item-price">$250</span></div></li>
@@ -174,7 +162,7 @@
       </ul>
     </details>
 
-    <details id="fritas" class="sec" open>
+    <details id="fritas" class="sec" >
       <summary><h2>Fritas salseadas</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">GRAMAJO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$630 (para uno $390)</span></div></li>
@@ -185,7 +173,7 @@
       </ul>
     </details>
 
-    <details id="tostados" class="sec" open>
+    <details id="tostados" class="sec" >
       <summary><h2>Tostados</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">JAMÓN Y QUESO</span><span class="dots" aria-hidden="true"></span><span class="item-price">$290</span></div></li>
@@ -197,7 +185,7 @@
       </ul>
     </details>
 
-    <details id="bebidas" class="sec" open>
+    <details id="bebidas" class="sec" >
       <summary><h2>Bebidas</h2></summary>
       <ul class="list">
         <li class="item"><div class="item-line"><span class="item-name">Refresco línea Pepsi 1.5 L</span><span class="dots" aria-hidden="true"></span><span class="item-price">$220</span></div></li>

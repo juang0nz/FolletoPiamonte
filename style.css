@@ -85,6 +85,7 @@ body {
   display: flex;
   gap: 12px;
   flex-wrap: wrap
+  
 }
 
 .btn {
@@ -100,9 +101,9 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent), #8f1d1d);
+  background: linear-gradient(135deg, var(--accent), #020202);
   color: #fff;
-  box-shadow: 0 10px 24px rgba(255, 61, 61, .25);
+  box-shadow: 0 10px 24px rgba(179, 21, 21, 0);
 }
 
 .btn-primary:hover {
@@ -384,3 +385,21 @@ body::before{
   margin: 0 !important;
   height: 0 !important;
 } */
+
+/* === Espacio seguro para la dock fija (WA/IG) y notch iOS === */
+:root { --dock-h: 72px; } /* alto aprox. de la dock */
+
+.dock{
+  bottom: 0 !important;                 /* pegada abajo */
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Reservar espacio al final de la página para que el footer no quede tapado */
+body{
+  padding-bottom: calc(var(--dock-h) + 28px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Si tu .footer ya tenía padding-bottom grande, lo suavizamos */
+.footer{
+  padding-bottom: 16px !important;
+}
