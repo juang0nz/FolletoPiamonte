@@ -403,3 +403,57 @@ body{
 .footer{
   padding-bottom: 16px !important;
 }
+
+
+.footer-phone a{
+  color:#fff;
+  font-weight:800;
+  text-decoration:none;
+  padding:2px 6px;
+  border-radius:8px;
+  background:linear-gradient(135deg, #d32525, #e08549); /* look WhatsApp */
+}
+.footer-phone a:hover{ filter:brightness(1.05); }
+
+/* Resalta la opción de Tabla de Milanesas */
+.item.destacado {
+  background: linear-gradient(135deg, rgba(255,61,61,0.15), rgba(255,183,3,0.12));
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.item.destacado .item-line {
+  font-weight: 800;
+  color: var(--accent-2); /* usa el amarillo queso */
+}
+
+.item.destacado .item-price {
+  color: var(--accent);
+  font-size: 1.1em;
+  font-weight: 900;
+}
+
+ /* Destacar la sección completa de Promos */
+  .sec.promo-sec{
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    border: 2px solid var(--accent);                 /* rojo pizza */
+    border-radius: var(--radius);
+    box-shadow: 0 12px 28px rgba(255,61,61,.18), 0 8px 18px rgba(0,0,0,.35);
+    position: relative;
+  }
+  /* Etiqueta/badge sutil arriba a la izquierda */
+  .sec.promo-sec::before{
+    content:"PROMOS";
+    position:absolute; top:-12px; left:16px;
+    background: linear-gradient(135deg, var(--accent), #ff6b6b);
+    color:#fff; font-weight:900; font-size:12px; letter-spacing:.4px;
+    padding:4px 8px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.18);
+  }
+  /* Título con brillo suave */
+  .sec.promo-sec summary h2{
+    background: linear-gradient(90deg, #ffffff, #ffd9d9);
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+  }
