@@ -457,3 +457,29 @@ body{
     -webkit-background-clip: text; background-clip: text;
     color: transparent;
   }
+
+  #masvendidas{
+        background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .03));
+          border: 2px solid var(--accent);
+          /* rojo pizza */
+          border-radius: var(--radius);
+          box-shadow: 0 12px 28px rgba(255, 61, 61, .18), 0 8px 18px rgba(0, 0, 0, .35);
+          position: relative;
+          padding: 10px;
+  }
+  
+#masvendidas::before {
+  content: "LAS MÁS PEDIDAS";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--accent), #ff6b6b);
+  color: #fff;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.18);
+}
