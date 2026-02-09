@@ -350,7 +350,33 @@ body {
 }
 
 .item-price {
-  white-space: nowrap
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-price del {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.promo-price {
+  background: linear-gradient(135deg, #ffb703, #ffa500);
+  color: #000;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 1.05em;
+  box-shadow: 0 2px 8px rgba(255, 183, 3, 0.4);
+  animation: highlight-pulse 2s ease-in-out infinite;
+}
+
+@keyframes highlight-pulse {
+  0%, 100% { box-shadow: 0 2px 8px rgba(255, 183, 3, 0.4); }
+  50% { box-shadow: 0 4px 12px rgba(255, 183, 3, 0.6); }
 }
 
 .item-desc {
